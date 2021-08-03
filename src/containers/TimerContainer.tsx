@@ -6,5 +6,5 @@ export default function TimerContainer(){
   const [timer, setTimer] = useState(millisecondsToDays(timeUntilWedding()));
 
 
-  return <Timer timer={timer}/>;
+  return <Timer timer={timer} setTimer={setTimer}/>;
 }
