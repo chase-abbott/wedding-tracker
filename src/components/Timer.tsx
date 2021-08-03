@@ -19,7 +19,7 @@ export default function Timer(props: {timer: Countdown, setTimer: (params: Count
   }, [timer, setTimer]);
 
   return (
-    <div className="flex justify-between w-6/12">
+    <div className="flex justify-between w-6/12 border-double border-4 border-pink-300 rounded">
       <h3> Days: {timer.days} </h3> 
       <h3> Hours: {timer.hours} </h3> 
       <h3> Minutes: {timer.minutes} </h3> 
