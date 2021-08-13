@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { timeUntilWedding, millisecondsToDays } from '../utils/timer';
 
 
@@ -16,7 +16,7 @@ export default function Timer(props: {timer: Countdown, setTimer: (params: Count
     const newCountdown = millisecondsToDays(timeUntilWedding());
     const interval = setInterval(setTimer(newCountdown), 1000);
     return () => clearInterval(interval);
-  }, [timer]);
+  }, [timer, setTimer]);
 
   return (
     <div className="flex justify-between w-6/12 border-double border-4 border-pink-300 rounded">
