@@ -16,7 +16,7 @@ export default function Timer(props: {timer: Countdown, setTimer: (params: Count
     const newCountdown = millisecondsToDays(timeUntilWedding());
     const interval = setInterval(setTimer(newCountdown), 1000);
     return () => clearInterval(interval);
-  }, [timer, setTimer]);
+  }, [timer]);
 
   return (
     <div className="flex justify-between w-6/12 border-double border-4 border-pink-300 rounded">
