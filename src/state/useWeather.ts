@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import getCurrentConditions from '../services/location';
 
-
 const useWeather = () => {
   const [currentWeather, setCurrentWeather] = useState<any>([]);
 

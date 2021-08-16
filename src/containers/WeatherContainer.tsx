@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import useWeather from '../state/useWeather';
 
 
 export default function WeatherContainer(){
   const { currentWeather } = useWeather();
-  useEffect(() => {
 
-    console.log(currentWeather);
-  });
   return (
     <div className="m-8">
       <h3> Current Weather in Carmel-By-The-Sea </h3>
