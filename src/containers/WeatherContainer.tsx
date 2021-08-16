@@ -8,6 +8,18 @@ export default function WeatherContainer(){
 
     console.log(currentWeather);
   });
-  return <h1> {currentWeather['WeatherText']}</h1>;
+  return (
+    <div className="m-8">
+      <h3> Current Weather in Carmel-By-The-Sea </h3>
+      <figure className="flex m-4 justify-between">
+        <div>
+          <figcaption> {currentWeather['Temperature']['Imperial'].Value}F</figcaption>
+          <figcaption> {currentWeather['Temperature']['Metric'].Value}C </figcaption>
+        </div>
+        <figcaption> {currentWeather['WeatherText']}</figcaption>
+        <img src={`./${currentWeather['WeatherIcon']}-s.png`} alt={currentWeather['WeatherText']}></img>
+      </figure>
+    </div>
+  );
 }
 
