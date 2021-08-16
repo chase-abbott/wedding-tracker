@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useWeather from '../state/useWeather';
+
 
 export default function WeatherContainer(){
   const { currentWeather } = useWeather();
-  return <h1> WeatherContainer </h1>;
+  useEffect(() => {
+
+    console.log(currentWeather);
+  });
+  return <h1> {currentWeather['WeatherText']}</h1>;
 }
 
