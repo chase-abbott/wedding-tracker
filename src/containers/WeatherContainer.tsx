@@ -11,7 +11,7 @@ export default function WeatherContainer(){
   return (
     <div className="m-8">
       <h3> Current Weather in Carmel-By-The-Sea </h3>
-      <figure className="flex m-4 justify-between">
+      <figure className="flex m-4 justify-between items-center">
         <div>
           <figcaption> {currentWeather['Temperature']['Imperial'].Value}F</figcaption>
           <figcaption> {currentWeather['Temperature']['Metric'].Value}C </figcaption>
