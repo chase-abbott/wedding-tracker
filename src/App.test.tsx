@@ -20,8 +20,10 @@ import App from './App';
 //     );
 //   }
 // }));
+jest.useFakeTimers();
 describe('renders app', () => {
   afterAll(() => cleanup());
+
 
   it('renders learn react link', () => {
     const { asFragment } = render(<App />);
