@@ -8,7 +8,7 @@ const useWeather = () => {
   useEffect(() => {
     (async () => {
       const weather = await getCurrentConditions();
-      setCurrentWeather(weather[0]);
+      setCurrentWeather(weather);
     })();
     return;
    
