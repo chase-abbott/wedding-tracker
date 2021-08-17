@@ -5,5 +5,8 @@ import Timer from '../components/Timer';
 export default function TimerContainer(){
   const [timer, setTimer] = useState(millisecondsToDays(timeUntilWedding()));
 
-  return <Timer timer={timer} setTimer={setTimer}/>;
+  return <Timer 
+    timer={timer} 
+    setTimer={setTimer}
+  />;
 }

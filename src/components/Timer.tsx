@@ -9,14 +9,13 @@ interface Countdown {
   seconds: number
 }
 
-export default function Timer(props: {timer: Countdown, setTimer: (params: Countdown) => any}){
+export default function Timer(props: {timer: Countdown, setTimer: (params: Countdown) => any }){
   const { timer, setTimer } = props;
 
   useEffect(() => {
     const newCountdown = millisecondsToDays(timeUntilWedding());
-    const interval = setInterval(setTimer(newCountdown), 1000);
-    return () => clearInterval(interval);
-  }, [timer, setTimer]);
+    setTimeout(setTimer(newCountdown), 1000);
+  });
 
   return (
     <div className="flex justify-between w-6/12 border-double border-4 border-pink-300 rounded p-4">
