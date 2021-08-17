@@ -14,6 +14,10 @@ const millisecondsToDays = (ms: number) => {
   const minutes = Math.floor((hoursms) / (60 * 1000));
   const minutesms = ms % (60 * 1000);
   const seconds = Math.floor(minutesms / 1000);
+
+  if (ms < 0) {
+    return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+  }
   
   return { days, hours, minutes, seconds };
 };
