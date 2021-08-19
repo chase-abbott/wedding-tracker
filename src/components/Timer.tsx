@@ -13,9 +13,12 @@ export default function Timer(props: {timer: Countdown, setTimer: (params: Count
   const { timer, setTimer } = props;
 
   useEffect(() => {
-    const newCountdown = millisecondsToDays(timeUntilWedding());
-    setTimeout(setTimer(newCountdown), 1000);
-  });
+    const interval = setInterval(() => {
+      const newCountdown = millisecondsToDays(timeUntilWedding());
+      setTimer(newCountdown);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="flex justify-between w-4/5 tablet:w-6/12 border-double border-4 border-pink-300 rounded p-4">
