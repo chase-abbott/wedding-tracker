@@ -18,7 +18,7 @@ export default function Timer(props: {timer: Countdown, setTimer: (params: Count
       setTimer(newCountdown);
     }, 1000);
     return () => clearInterval(interval);
-  }, []);
+  }, [setTimer]);
 
   return (
     <div className="flex justify-between w-4/5 tablet:w-6/12 border-double border-4 border-pink-300 rounded p-4">
