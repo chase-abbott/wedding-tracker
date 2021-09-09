@@ -6,14 +6,13 @@ import ForecastItem from '../components/ForecastItem';
 export default function WeatherContainer(){
   const { currentWeather, forecast } = useWeather();
 
-  useEffect(() => {
-    console.log(forecast);
-  });
-
   const forecastItems = forecast.map((day: any) => {
+    console.log(day);
     return (
       <li key={day.EpochDate}>
-        <ForecastItem date={day.Date}/>
+        <ForecastItem 
+          date={day.Date}
+          temperature={day.Temperature}/>
       </li>
     );
   });
@@ -33,7 +32,7 @@ export default function WeatherContainer(){
           <figcaption> {currentWeather[0].WeatherText}</figcaption>
           <img src={`./${currentWeather[0].WeatherIcon}-s.png`} alt={currentWeather['WeatherText']}></img>
         </figure>
-        <ul> {forecastItems}</ul>
+        <ul className="flex justify-between w-full p-8"> {forecastItems}</ul>
       </div>
       : null
     }
