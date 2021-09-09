@@ -1,3 +1,4 @@
+import { parse } from 'dotenv/types';
 import React from 'react';
 
 interface temp {
@@ -27,11 +28,12 @@ export default function ForecastItem(props: {date: Date, temperature: temp}){
     6: 'Saturday',
   };
   const day = parsedDate.getDay().toString();
- 
+  const month = (parsedDate.getMonth() + 1).toString();
+  const newDate = parsedDate.getUTCDate().toString();
 
   return (
     <div>
-      <h3> {dateMap[day]} </h3>
+      <h3 className="text-2xl"> {dateMap[day]} {month}/{newDate} </h3>
       <p> High {temperature.Maximum.Value}{temperature.Maximum.Unit}</p>
       <p> Low {temperature.Minimum.Value}{temperature.Minimum.Unit}</p>
     </div>
