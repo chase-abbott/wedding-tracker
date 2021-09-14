@@ -33,9 +33,9 @@ export default function ForecastItem(props: {date: Date, temperature: temp}){
 
   return (
     <div>
-      <h3 className="text-2xl"> {dateMap[day]} {month}/{newDate} </h3>
-      <p> High {temperature.Maximum.Value}{temperature.Maximum.Unit}</p>
-      <p> Low {temperature.Minimum.Value}{temperature.Minimum.Unit}</p>
+      <h3 className="tablet:text-2xl text-xs"> {dateMap[day]} {month}/{newDate} </h3>
+      <p className="text-xs tablet:text-base"> High {temperature.Maximum.Value}{temperature.Maximum.Unit}</p>
+      <p className="text-xs tablet:text-base"> Low {temperature.Minimum.Value}{temperature.Minimum.Unit}</p>
     </div>
   );
 }
