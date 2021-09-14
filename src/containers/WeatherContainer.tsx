@@ -6,14 +6,13 @@ import ForecastItem from '../components/ForecastItem';
 export default function WeatherContainer(){
   const { currentWeather, forecast } = useWeather();
 
-  useEffect(() => {
-    console.log(forecast);
-  });
-
   const forecastItems = forecast.map((day: any) => {
+    console.log(day);
     return (
       <li key={day.EpochDate}>
-        <ForecastItem date={day.Date}/>
+        <ForecastItem 
+          date={day.Date}
+          temperature={day.Temperature}/>
       </li>
     );
   });
@@ -22,9 +21,9 @@ export default function WeatherContainer(){
   return (<>
     {currentWeather[0] && forecast ?
 
-      <div className="m-8 w-4/5 flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <h3> Current Weather in Carmel-By-The-Sea </h3>
-        <figure className="flex m-4 justify-between items-center w-full">
+        <figure className="flex m-4 justify-between items-center w-4/5">
           <img src='./AccuWeather.png' alt="accuweather" className="w-1/12"/>
           <div>
             <figcaption> {currentWeather[0].Temperature.Imperial.Value}F</figcaption>
@@ -33,7 +32,7 @@ export default function WeatherContainer(){
           <figcaption> {currentWeather[0].WeatherText}</figcaption>
           <img src={`./${currentWeather[0].WeatherIcon}-s.png`} alt={currentWeather['WeatherText']}></img>
         </figure>
-        <ul> {forecastItems}</ul>
+        <ul className="flex tablet:justify-between justify-around tablet:w-4/5 p-8"> {forecastItems}</ul>
       </div>
       : null
     }

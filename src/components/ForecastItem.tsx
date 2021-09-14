@@ -1,7 +1,21 @@
+import { parse } from 'dotenv/types';
 import React from 'react';
 
-export default function ForecastItem(props: {date: Date}){
-  const { date } = props;
+interface temp {
+  Maximum: {
+    Value: number,
+    Unit: string,
+    UnitType: number
+  },
+  Minimum: {
+    Value: number,
+    Unit: string,
+    UnitType: number
+  }
+}
+
+export default function ForecastItem(props: {date: Date, temperature: temp}){
+  const { date, temperature } = props;
 
   const parsedDate = new Date(date);
   const dateMap: any = {
@@ -14,7 +28,14 @@ export default function ForecastItem(props: {date: Date}){
     6: 'Saturday',
   };
   const day = parsedDate.getDay().toString();
- 
+  const month = (parsedDate.getMonth() + 1).toString();
+  const newDate = parsedDate.getUTCDate().toString();
 
-  return <h1> {dateMap[day]} </h1>;
+  return (
+    <div>
+      <h3 className="tablet:text-2xl text-xs"> {dateMap[day]} {month}/{newDate} </h3>
+      <p className="text-xs tablet:text-base"> High {temperature.Maximum.Value}{temperature.Maximum.Unit}</p>
+      <p className="text-xs tablet:text-base"> Low {temperature.Minimum.Value}{temperature.Minimum.Unit}</p>
+    </div>
+  );
 }
